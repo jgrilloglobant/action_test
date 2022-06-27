@@ -38,6 +38,20 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assemble
 
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7.2'
+    - uses: maierj/fastlane-action@v2.2.0
+      with:
+        lane: 'build_for_screengrab'
+    - name: Upload Screenshots Capture
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshot_capture
+        path: '**/fastlane/metadata/android/'
+
     - name: Create release and upload apk
       uses: underwindfall/create-release-with-debugapk@v2.0.0
       env:
