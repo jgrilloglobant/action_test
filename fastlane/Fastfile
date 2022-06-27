@@ -27,6 +27,15 @@ platform :android do
     	task: 'assemble',
     	build_type: 'AndroidTest'
     )
+
+    adb(command: "kill-server") #just in case
+    adb(command: "start-server")
+
+    # launch the emulator and detach
+    Process.fork { `emulator64-x86 -avd testAVD  -no-audio  -no-window` }
+    sleep 20 #give the emu some boot time.
+    adb(command: "wait-for-device")
+
     capture_android_screenshots(
     	locales: ["en", "es"],
     	clear_previous_screenshots: true,
