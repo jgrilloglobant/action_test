@@ -28,13 +28,17 @@ platform :android do
     	build_type: 'AndroidTest'
     )
 
-    adb(command: "kill-server") #just in case
-    adb(command: "start-server")
+    android_emulator(
+    package: "system-images;android-24;google_apis;x86_64"
+    )
 
-    # launch the emulator and detach
-    Process.fork { `emulator64-x86 -avd testAVD  -no-audio  -no-window` }
-    sleep 20 #give the emu some boot time.
-    adb(command: "wait-for-device")
+#     adb(command: "kill-server") #just in case
+#     adb(command: "start-server")
+#
+#     # launch the emulator and detach
+#     Process.fork { `emulator64-x86 -avd testAVD  -no-audio  -no-window` }
+#     sleep 20 #give the emu some boot time.
+#     adb(command: "wait-for-device")
 
     capture_android_screenshots(
     	locales: ["en", "es"],
