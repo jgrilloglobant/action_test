@@ -28,9 +28,13 @@ platform :android do
     	build_type: 'AndroidTest'
     )
 
-    android_emulator(
-    package: "system-images;android-24;google_apis;x86_64"
-    )
+#     android_emulator(
+#     	location: '9.1808 48.7771',
+#     	package: "system-images;android-24;google_apis;x86_64",
+#     	demo_mode: true,
+#     	device: "Nexus 5",
+#     	cold_boot: false
+#     )
 
 #     adb(command: "kill-server") #just in case
 #     adb(command: "start-server")
