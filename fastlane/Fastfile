@@ -36,7 +36,7 @@ platform :android do
 #     	cold_boot: false
 #     )
 
-    adb(command: "devices -l")
+    sh("~/Library/Android/sdk/tools/bin/avdmanager create avd --name Nexus6P")
     sh("~/Library/Android/sdk/emulator/emulator -list-avds")
     sh("emulator -list-avds")
 
@@ -49,7 +49,6 @@ platform :android do
     capture_android_screenshots(
     	locales: ["en", "es"],
     	clear_previous_screenshots: true,
-    	use_adb_root: true,
     	app_apk_path: "app/build/outputs/apk/debug/app-debug.apk",
     	tests_apk_path: "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
     )
