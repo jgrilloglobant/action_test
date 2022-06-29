@@ -19,11 +19,11 @@ platform :android do
   desc "Build debug and test APK for screenshots"
   lane :build_for_screengrab do
     gradle(task: "clean")
-    build_android_app(
+    gradle(
     	task: 'assemble',
     	build_type: 'Debug'
     )
-    build_android_app(
+    gradle(
     	task: 'assemble',
     	build_type: 'AndroidTest'
     )
@@ -36,7 +36,6 @@ platform :android do
 #     	cold_boot: false
 #     )
 
-#     adb(command: "kill-server") #just in case
 #     adb(command: "start-server")
 #
 #     # launch the emulator and detach
@@ -47,6 +46,7 @@ platform :android do
     capture_android_screenshots(
     	locales: ["en", "es"],
     	clear_previous_screenshots: true,
+    	use_adb_root: true,
     	app_apk_path: "app/build/outputs/apk/debug/app-debug.apk",
     	tests_apk_path: "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
     )

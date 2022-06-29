@@ -12,6 +12,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import tools.fastlane.screengrab.Screengrab
+import tools.fastlane.screengrab.UiAutomatorScreenshotStrategy
 import tools.fastlane.screengrab.locale.LocaleTestRule
 
 
@@ -33,6 +34,7 @@ class ExampleInstrumentedTest {
 
     @Test
     fun testTakeScreenshot() {
+        Screengrab.setDefaultScreenshotStrategy(UiAutomatorScreenshotStrategy())
         Screengrab.screenshot("before_button_click")
 
         // Your custom onView...
