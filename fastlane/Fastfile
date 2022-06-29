@@ -39,8 +39,8 @@ platform :android do
     sh("mkdir android-sdk")
     sh("wget https://dl.google.com/android/repository/commandlinetools-mac-8512546_latest.zip")
     sh("unzip commandlinetools-mac-8512546_latest.zip")
-    sh("tools/bin/sdkmanager --update")
-    
+    sh("cmdline-tools/bin/sdkmanager --update")
+
 #     sh("~/Library/Android/sdk/emulator/emulator -list-avds")
 #     sh("emulator -list-avds")
 
