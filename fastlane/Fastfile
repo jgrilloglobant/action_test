@@ -36,9 +36,9 @@ platform :android do
 #     	cold_boot: false
 #     )
 
-    sh("~/Library/Android/sdk/tools/bin/avdmanager create avd --name Nexus6P")
-    sh("~/Library/Android/sdk/emulator/emulator -list-avds")
-    sh("emulator -list-avds")
+    sh("~/Library/Android/sdk/tools/bin/sdkmanager --list | grep system-images")
+#     sh("~/Library/Android/sdk/emulator/emulator -list-avds")
+#     sh("emulator -list-avds")
 
 #
 #     # launch the emulator and detach
