@@ -37,6 +37,10 @@ platform :android do
 #     )
 
     adb(command: "devices -l")
+    sh("./emulator -list-avds")
+    sh("emulator -list-avds")
+    sh("~/Android/sdk/emulator/emulator -list-avds")
+
 #
 #     # launch the emulator and detach
 #     Process.fork { `emulator64-x86 -avd testAVD  -no-audio  -no-window` }
