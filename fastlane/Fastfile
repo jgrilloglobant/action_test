@@ -37,9 +37,8 @@ platform :android do
 #     )
 
     adb(command: "devices -l")
-    sh("./emulator -list-avds")
+    sh("~/Library/Android/sdk/emulator/emulator -list-avds")
     sh("emulator -list-avds")
-    sh("~/Android/sdk/emulator/emulator -list-avds")
 
 #
 #     # launch the emulator and detach
