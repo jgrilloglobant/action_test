@@ -36,7 +36,7 @@ platform :android do
 #     	cold_boot: false
 #     )
 
-#     adb(command: "start-server")
+    adb(command: "devices -l")
 #
 #     # launch the emulator and detach
 #     Process.fork { `emulator64-x86 -avd testAVD  -no-audio  -no-window` }
