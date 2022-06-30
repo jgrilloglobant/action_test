@@ -50,7 +50,7 @@ platform :android do
     sh("yes | /Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager --install \"system-images;android-29;google_apis;x86\"")
 #     sh("sdk/cmdline-tools/latest/bin/sdkmanager --list | grep system-images")
 #     sh("yes | sdk/cmdline-tools/latest/bin/sdkmanager --install \"system-images;android-29;default;x86\"")
-    sh("echo \"no\" | /Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/avdmanager --verbose create avd --force --name \"generic_15\" --package \"system-images;android-29;google_apis;x86\" --tag \"google_apis\" --abi \"x86\"")
+    sh("echo \"no\" | /Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/avdmanager --verbose create avd --force --name \"generic_15\" --package \"system-images;android-29;google_apis;x86\" --tag \"google_apis\" --abi \"x86\" &")
     adb(command: "kill-server")
     adb(command: "start-server")
     sh("/Users/runner/Library/Android/sdk/emulator/emulator @generic_15 -no-window")
