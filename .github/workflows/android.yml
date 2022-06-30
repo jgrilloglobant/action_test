@@ -21,29 +21,29 @@ jobs:
         cache: gradle
 
     # Run emulator
-#    - name: run tests
-#      uses: reactivecircus/android-emulator-runner@v2
-#      with:
-#        api-level: 29
-#        script: ./gradlew connectedCheck
+    - name: run tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 29
+        script: ./gradlew connectedCheck
 
-#    - name: Grant execute permission for gradlew
-#      run: chmod +x gradlew
-#    - name: Run tests
-#      run: ./gradlew test
-#    - name: Upload Test Reports
-#      if: ${{ always() }}
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: test-reports
-#        path: '**/build/reports/tests/'
-#    - name: Generate build number
-#      id: buildnumber
-#      uses: einaregilsson/build-number@v3
-#      with:
-#        token: ${{secrets.GITHUB_TOKEN}}
-#    - name: Build with Gradle
-#      run: ./gradlew assemble
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Run tests
+      run: ./gradlew test
+    - name: Upload Test Reports
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-reports
+        path: '**/build/reports/tests/'
+    - name: Generate build number
+      id: buildnumber
+      uses: einaregilsson/build-number@v3
+      with:
+        token: ${{secrets.GITHUB_TOKEN}}
+    - name: Build with Gradle
+      run: ./gradlew assemble
 
 
     - uses: actions/checkout@v2
@@ -53,19 +53,19 @@ jobs:
     - uses: maierj/fastlane-action@v2.2.0
       with:
         lane: 'build_for_screengrab'
-#    - name: Upload Screenshots Capture
-#      if: ${{ always() }}
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: screenshot_capture
-#        path: '**/fastlane/metadata/'
-#
-#    - name: Create release and upload apk
-#      uses: underwindfall/create-release-with-debugapk@v2.0.0
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      with:
-#        tag_name: ${{ steps.buildnumber.outputs.build_number }}
-#        asset_path: app/build/outputs/apk/debug/app-debug.apk
-#        asset_name: Example.apk
-#        asset_content_type: application/zip
+    - name: Upload Screenshots Capture
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshot_capture
+        path: '**/fastlane/metadata/'
+
+    - name: Create release and upload apk
+      uses: underwindfall/create-release-with-debugapk@v2.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.buildnumber.outputs.build_number }}
+        asset_path: app/build/outputs/apk/debug/app-debug.apk
+        asset_name: Example.apk
+        asset_content_type: application/zip
