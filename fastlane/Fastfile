@@ -53,7 +53,7 @@ platform :android do
     sh("echo \"no\" | ~/Library/Android/sdk/cmdline-tools/latest/bin/avdmanager --verbose create avd --force --name \"generic_18\" --package \"system-images;android-29;google_apis;x86\" --tag \"google_apis\" --abi \"x86\"")
     sh("~/Library/Android/sdk/platform-tools/adb kill-server")
     sh("~/Library/Android/sdk/platform-tools/adb start-server")
-    sh("~/Library/Android/sdk/emulator/emulator @generic_18 > /dev/null 2>&1 &")
+    sh("~/Library/Android/sdk/emulator/emulator @generic_18 -no-audio  -no-window > /dev/null 2>&1 &")
 #     sh("emulator -list-avds")
 
 #
