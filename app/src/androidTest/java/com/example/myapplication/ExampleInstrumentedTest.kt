@@ -34,6 +34,7 @@ class ExampleInstrumentedTest {
 
     @Test
     fun testTakeScreenshot() {
+        Thread.sleep(2000)
         Screengrab.screenshot("before_button_click")
 
         // Your custom onView...
