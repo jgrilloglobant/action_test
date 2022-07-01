@@ -21,10 +21,10 @@ jobs:
         cache: gradle
 
     - name: create emulator
-      run: echo no | avdmanager create avd -n Nexus_5X_API_26 --device 'Nexus 5X' -k "system-images;android-26;google_apis;x86" --force
+      run: echo no | ~/Library/Android/sdk/cmdline-tools/latest/bin/avdmanager create avd -n Nexus_5X_API_26 --device 'Nexus 5X' -k "system-images;android-26;google_apis;x86" --force
 
     - name: start emulator
-      run: emulator -avd Nexus_5X_API_26 -no-window -skin 1080x1920 -no-audio -debug-init > /dev/null 2>&1 &
+      run: ~/Library/Android/sdk/emulator/emulator -avd Nexus_5X_API_26 -no-window -skin 1080x1920 -no-audio -debug-init > /dev/null 2>&1 &
 
     # Run emulator
 #    - name: run tests
