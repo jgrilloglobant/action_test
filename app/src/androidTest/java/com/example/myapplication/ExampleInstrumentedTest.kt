@@ -34,7 +34,6 @@ class ExampleInstrumentedTest {
 
     @Test
     fun testTakeScreenshot() {
-        Screengrab.setDefaultScreenshotStrategy(UiAutomatorScreenshotStrategy())
         Screengrab.screenshot("before_button_click")
 
         // Your custom onView...
