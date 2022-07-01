@@ -48,15 +48,15 @@ platform :android do
 #     sh("yes | sdk/cmdline-tools/latest/bin/sdkmanager \"platform-tools\"")
 #     sh("export ANDROID_SDK_ROOT=sdk")
 #     sh("export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$PATH")
-    sh("yes | ~/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager --install \"system-images;android-30;google_apis;x86\"")
-#     sh("sdk/cmdline-tools/latest/bin/sdkmanager --list | grep system-images")
-#     sh("yes | sdk/cmdline-tools/latest/bin/sdkmanager --install \"system-images;android-29;default;x86\"")
-    sh("echo \"no\" | ~/Library/Android/sdk/cmdline-tools/latest/bin/avdmanager --verbose create avd --force --name \"generic_22\" --package \"system-images;android-30;google_apis;x86\" --tag \"google_apis\" --abi \"x86\"")
-    sh("~/Library/Android/sdk/platform-tools/adb kill-server")
-    sh("~/Library/Android/sdk/platform-tools/adb start-server")
-    Process.fork { `~/Library/Android/sdk/emulator/emulator @generic_22 -wipe-data` }
-    sleep 20 #give the emu some boot time.
-    adb(command: "wait-for-device")
+#     sh("yes | ~/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager --install \"system-images;android-30;google_apis;x86\"")
+# #     sh("sdk/cmdline-tools/latest/bin/sdkmanager --list | grep system-images")
+# #     sh("yes | sdk/cmdline-tools/latest/bin/sdkmanager --install \"system-images;android-29;default;x86\"")
+#     sh("echo \"no\" | ~/Library/Android/sdk/cmdline-tools/latest/bin/avdmanager --verbose create avd --force --name \"generic_22\" --package \"system-images;android-30;google_apis;x86\" --tag \"google_apis\" --abi \"x86\"")
+#     sh("~/Library/Android/sdk/platform-tools/adb kill-server")
+#     sh("~/Library/Android/sdk/platform-tools/adb start-server")
+#     Process.fork { `~/Library/Android/sdk/emulator/emulator @generic_22 -wipe-data` }
+#     sleep 20 #give the emu some boot time.
+#     adb(command: "wait-for-device")
 #     sh("~/Library/Android/sdk/emulator/emulator @generic_18 -no-audio  -no-window > /dev/null 2>&1 &")
 #     sh("emulator -list-avds")
 
