@@ -11,13 +11,14 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+
 
 default_platform(:android)
 
 platform :android do
   desc "Build debug and test APK for screenshots"
   lane :build_for_screengrab do
+    update_fastlane
     gradle(task: "clean")
     gradle(
     	task: 'assemble',
